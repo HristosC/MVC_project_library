@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC_Project.Models.jobs>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Jobs</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "jobs")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Job</span></i></a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.job_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.min_lvl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.max_lvl)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.job_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.min_lvl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.max_lvl)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "jobs", new { id = item.job_id } )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "jobs", new { id = item.job_id } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "jobs", new { id = item.job_id } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

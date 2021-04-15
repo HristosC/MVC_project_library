@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC_Project.Models.pub_info>
+
+@{
+    ViewBag.Title = "Pub Info";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Pub Info</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "pub_info")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Pub Info</span></i></a>
+    </p>
+    <table class="table" style="width: 100%;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pr_info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.publishers.pub_name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="col-md-1">
+                    <div style="word-wrap:break-word;width:350px">
+                        @Html.DisplayFor(modelItem => item.logo)
+                    </div>
+
+                </td>
+                <td class="col-md-1">
+                    <div style="word-wrap:break-word;width:350px">
+                        @Html.DisplayFor(modelItem => item.pr_info)
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.publishers.pub_name)
+                </td>
+
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "pub_info", new { id = item.pub_id } )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "pub_info", new { id = item.pub_id } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "pub_info", new { id = item.pub_id } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model MVC_Project.Models.display_anafores
+
+@{
+    ViewBag.Title = "Απότελεσμα 2ης Αναφοράς";
+}
+<div class="jumbotron" style="min-height:0px">
+    @if (Model.info == null)
+    {
+        <h2 style="text-align: center;color:white">Δεν βρέθηκαν αποτελέσματα με τις παραμέτρους που δώσατε!</h2>
+    }
+    else
+    {
+        <h2 style="text-align: center;color:white">Απότελεσμα 2ης Αναφοράς</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => Model.order_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.title_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.store_name)
+                </th>
+            </tr>
+
+            @foreach (var item in Model.info)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.order_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.store_name)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    <br />
+    <div class="form-group" style="text-align:center;margin-top:25px">
+        <div>
+            <a style="text-align:center" class="btn btn-default" href="@Url.Action("")">Πίσω στις αναφορές</a>
+        </div>
+    </div>
+
+
+
+</div>

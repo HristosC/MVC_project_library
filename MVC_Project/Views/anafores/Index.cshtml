@@ -1,0 +1,86 @@
+﻿@model MVC_Project.Models.display_anafores
+
+@{
+    ViewBag.Title = "Αναφορές";
+}
+<div class="jumbotron">
+    <div class="form-horizontal">
+        <h2 style="text-align: center;color:white">Αναφορές</h2>
+        <br />
+        <div class="jumbotron" style="background-color: rgba(31, 31, 46, 0.77);">
+            <h3 style="text-align: center;color:white">Ανάκτηση στοιχείων επικοινωνίας των συγγραφέων που τα βιβλία τους είναι ανάμεσα σε X πρώτα σε πωλήσεις για συγκεκριμένο χρονικό διάστημα.</h3>
+            <br />
+            <form  action="@Url.Action("firstanafora", "anafores")" method="post">
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Δώσε X:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="number" min="0" name="X" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Αρχική Ημερομηνία:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" name="date_start" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Τελική Ημερομηνία:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" name="date_end" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="text-align:center;margin-top:25px">
+                    <div>
+                        <input type="submit" value="Προβολή" class="btn btn-default" style="text-align:center" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br />
+        <div class="jumbotron" style="background-color: rgba(31, 31, 46, 0.77);">
+            <h3 style="text-align: center;color:white">Εμφάνισε εκείνες τις παραγγελίες που έγιναν (ordered) εντός ενός ημερολογιακού διαστήματος σε συγκεκριμένο πλήθος καταστημάτων ανάλογα με τα αρχικά γράμματα τους.</h3>
+            <br />
+            <form action="@Url.Action("secondanafora", "anafores")" method="post">
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Δώσε Αρχικό Γράμμα:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="a" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Δώσε Τελικό Γράμμα:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" name="b" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Αρχική Ημερομηνία:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" name="date_start" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-4">Τελική Ημερομηνία:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" name="date_end" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="text-align:center;margin-top:25px">
+                    <div>
+                        <input type="submit" value="Προβολή" class="btn btn-default" style="text-align:center" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/custom.js"></script>

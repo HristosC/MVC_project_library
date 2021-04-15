@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVC_Project.Models.sales>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Sales</h2>
+    <p>
+        <a href="@Url.Action("Create", "sales")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Sale</span></i></a>
+    </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ord_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.qty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.payterms)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.stores.stor_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.titles.title)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ord_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.qty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.payterms)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.stores.stor_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.titles.title)
+                    </td>
+                    <td class="col-md-1">
+                        <a href="@Url.Action("Edit", "sales", new { stor_id = item.stor_id, ord_num = item.ord_num, title_id = item.title_id } )"><i class="fas fa-edit fa-1x"></i></a> |
+                        <a href="@Url.Action("Details", "sales", new { stor_id = item.stor_id, ord_num = item.ord_num, title_id = item.title_id } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                        <a href="@Url.Action("Delete", "sales", new { stor_id = item.stor_id, ord_num = item.ord_num, title_id = item.title_id } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+   
+</div>

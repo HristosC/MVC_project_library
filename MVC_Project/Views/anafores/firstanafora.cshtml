@@ -1,0 +1,78 @@
+﻿@model MVC_Project.Models.display_anafores
+
+@{
+    ViewBag.Title = "Απότελεσμα 1ης Αναφοράς";
+}
+<div class="jumbotron" style="min-height:0px">
+    @if (Model.info == null)
+    {
+        <h2 style="text-align: center;color:white">Δεν βρέθηκαν αποτελέσματα με τις παραμέτρους που δώσατε!</h2>
+    }
+    else
+    {
+        <h2 style="text-align: center;color:white">Απότελεσμα 1ης Αναφοράς</h2>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => Model.auth_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.auth_lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.city)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.state)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => Model.zip)
+                </th>
+            </tr>
+
+        @foreach (var item in Model.info)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.auth_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.auth_lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zip)
+                </td>
+
+            </tr>
+        }
+        </table>
+    }
+    <br />
+    <div class="form-group" style="text-align:center;margin-top:25px">
+        <div>
+            <a style="text-align:center" class="btn btn-default" href="@Url.Action("")">Πίσω στις αναφορές</a>
+        </div>
+    </div>
+
+
+
+</div>

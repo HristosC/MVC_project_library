@@ -1,0 +1,56 @@
+﻿@model MVC_Project.Models.titleauthor
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="jumbotron">
+    <h2>Details</h2>
+
+    <div>
+        <h4>titleauthor</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.au_ord)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.au_ord)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.royaltyper)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.royaltyper)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.authors.au_lname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.authors.au_lname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.titles.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.titles.title)
+            </dd>
+
+        </dl>
+    </div>
+    <br>
+    <div class="form-group" style="text-align:center;margin-top:25px">
+        <div class="col-md-offset-2 col-md-10">
+            <a style="margin-left:15%" class="btn btn-default pull-left" href="@Url.Action("Edit", new { au_id = Model.au_id,title_id = Model.title_id })">Edit</a>
+            <a style="margin-left:36px" class="btn btn-default" href="@Url.Action("")">Back To list</a>
+        </div>
+    </div>
+    <br>
+    <br />
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MVC_Project.Models.employee>
+
+@{
+    ViewBag.Title = "Employees";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Employees</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "employees")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Employee</span></i></a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.minit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.job_lvl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hire_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jobs.job_desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.publishers.pub_name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.minit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.job_lvl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hire_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jobs.job_desc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.publishers.pub_name)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "employees", new { id = item.emp_id } )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "employees", new { id = item.emp_id } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "employees", new { id = item.emp_id } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

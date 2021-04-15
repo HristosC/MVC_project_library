@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MVC_Project.Models.titles>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Titles</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "titles")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New titles</span></i></a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.advance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.royalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ytd_sales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pubdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.publishers.pub_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title_id)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.advance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.royalty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ytd_sales)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pubdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.publishers.pub_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title_id)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "titles", new { id = item.title_id } )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "titles", new { id = item.title_id } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "titles", new { id = item.title_id } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

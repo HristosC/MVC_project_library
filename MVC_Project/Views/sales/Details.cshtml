@@ -1,0 +1,62 @@
+﻿@model MVC_Project.Models.sales
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="jumbotron">
+    <h2>Details</h2>
+
+    <div>
+        <h4>sales</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ord_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ord_date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.qty)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.qty)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.payterms)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.payterms)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.stores.stor_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.stores.stor_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.titles.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.titles.title)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="form-group" style="text-align:center;margin-top:25px">
+        <div class="col-md-offset-2 col-md-10">
+            <a style="margin-left:15%" class="btn btn-default pull-left" href="@Url.Action("Edit", new {  stor_id = Model.stor_id, ord_num = Model.ord_num, title_id = Model.title_id })">Edit</a>
+            <a style="margin-left:36px" class="btn btn-default" href="@Url.Action("")">Back To list</a>
+        </div>
+    </div>
+    <br />
+</div>

@@ -1,0 +1,36 @@
+﻿body {
+    background: url('https://wp.stanforddaily.com/wp-content/uploads/2018/05/building-aisle-library-public-library-inventory-bookselling-24143-pxhere.com_.jpg') no-repeat center center fixed;
+
+    background-size: cover;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.form-control{
+    margin-left:50px;
+    min-width:80%;
+}
+.btn btn-default{
+    background-color:aqua;
+}
+.dl-horizontal {
+    margin-left:33%
+}
+.jumbotron {
+    margin-top: 10px;
+    background-color: rgba(31, 31, 46, 0.7);
+    color:white;
+}
+.imageInputWrapper {
+    width: 172px;
+    border: solid 1px white;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 2px 0 #C2C2C2;
+}
+
+.red {
+    box-shadow: 0px 0px 2px 2px red;
+}

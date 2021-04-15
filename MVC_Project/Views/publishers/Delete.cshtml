@@ -1,0 +1,69 @@
+﻿@model MVC_Project.Models.publishers
+
+@{
+    ViewBag.Title = "Delete - Publishers";
+}
+<div class="jumbotron">
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this from publishers?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pub_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pub_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pub_info.pr_info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pub_info.pr_info)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group" style="text-align:center;margin-top:25px">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-default pull-left" style="margin-left:15%" />
+                <a style="margin-left:36px" class="btn btn-default" href="@Url.Action("")">Back To list</a>
+
+            </div>
+        </div>
+        <br />
+    }
+</div>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC_Project.Models.discounts>
+
+@{
+    ViewBag.Title = "Discounts";
+}
+<div class="jumbotron" style="margin-top:10px;background-color: rgba(31, 31, 46, 0.7); color:white;">
+    <h2 style="text-align: center;color:white">Discounts</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "discounts")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New discounts</span></i></a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.lowqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.highqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stores.stor_name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lowqty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.highqty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stores.stor_name)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "discounts", new { discounttype_id = item.discounttype} )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "discounts", new { discounttype_id = item.discounttype} )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "discounts", new { discounttype_id = item.discounttype } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

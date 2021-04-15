@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MVC_Project.Models.authors>
+
+@{
+    ViewBag.Title = "Authors";
+}
+<div class="jumbotron" style="margin-top:10px;background-color: rgba(31, 31, 46, 0.7);">
+    <h2 style="text-align: center;color:white">Authors</h2>
+    <p>
+        
+        <a href="@Url.Action("Create", "authors")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Author</span></i></a> 
+    </p>
+    <table class="table" style="color:white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.au_lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.au_fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.zip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contract)
+            </th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.au_lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.au_fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contract)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "authors", new { id = item.au_id } )" ><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "authors", new { id = item.au_id } )" ><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "authors", new { id = item.au_id } )" ><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_Project.Models.roysched>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <h2 style="text-align: center;color:white">Roysched</h2>
+
+    <p>
+        <a href="@Url.Action("Create", "royscheds")"><i class="far fa-plus-square"><span style="font-family:sans-serif"> Create New Roysched</span></i></a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.lorange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hirange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.royalty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.titles.title)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lorange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hirange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.royalty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titles.title)
+                </td>
+                <td class="col-md-1">
+                    <a href="@Url.Action("Edit", "royscheds", new { title_id = item.title_id, royalty_id = item.royalty} )"><i class="fas fa-edit fa-1x"></i></a> |
+                    <a href="@Url.Action("Details", "royscheds", new { title_id = item.title_id, royalty_id = item.royalty } )"><i class="fas fa-info-circle fa-1x"></i></a> |
+                    <a href="@Url.Action("Delete", "royscheds", new { title_id = item.title_id, royalty_id = item.royalty } )"><i class="fas fa-trash-alt fa-1x"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

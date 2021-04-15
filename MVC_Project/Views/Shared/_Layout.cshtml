@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Book Library</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/Content/custom.css">
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;border-color:black">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Κεντρική Σελίδα", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="container">
+                    <ul class="nav navbar-nav pull-right">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                Βάση Δεδομένων
+                            </a>
+                            <ul class="dropdown-menu clearfix" role="menu">
+                                <li>@Html.ActionLink("Authors", "Index", "authors")</li>
+                                <li>@Html.ActionLink("Discounts", "Index", "discounts")</li>
+                                <li>@Html.ActionLink("Employees", "Index", "employees")</li>
+                                <li>@Html.ActionLink("Jobs", "Index", "jobs")</li>
+                                <li>@Html.ActionLink("Pub Info", "Index", "pub_info")</li>
+                                <li>@Html.ActionLink("Publishers", "Index", "publishers")</li>
+                                <li>@Html.ActionLink("Royscheds", "Index", "royscheds")</li>
+                                <li>@Html.ActionLink("Sales", "Index", "sales")</li>
+                                <li>@Html.ActionLink("Stores", "Index", "stores")</li>
+                                <li>@Html.ActionLink("Title Authors", "Index", "titleauthors")</li>
+                                <li>@Html.ActionLink("Titles", "Index", "titles")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Αναφορές", "Index", "anafores")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="~/Scripts/custom.js"></script>
+</body>
+</html>
